@@ -8,8 +8,7 @@ DataSage is a smart Excel automation tool that converts raw data into meaningful
 
 ## 🚀 Live Demo
 
-👉 https://your-app-link.streamlit.app
-*(Replace with your Streamlit link after deployment)*
+👉 https://datasagesse.streamlit.app/
 
 ---
 
