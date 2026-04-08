@@ -61,16 +61,26 @@ st.markdown("---")
 
 # ------------------ UPLOAD ------------------
 st.markdown("### 📂 Upload Excel File")
+
+# Sample file download
+with open("sample.xlsx", "rb") as f:
+    st.download_button("📥 Download Sample Excel", f, "sample.xlsx")
+
 uploaded_file = st.file_uploader("Drag & drop or browse", type=["xlsx"])
 
 if uploaded_file:
     df = pd.read_excel(uploaded_file)
     df.columns = df.columns.str.strip()
 
+    st.markdown("### 👀 Data Preview")
+    st.dataframe(df.head())
+
     st.success("File uploaded successfully")
+    st.success("🔒 Your data is processed securely. No data is stored.")
 
     # ------------------ COLUMN MAPPING ------------------
     st.markdown("### 🔄 Column Mapping")
+    st.info("Select correct columns (Date = date field, Sales = numeric values, etc.)")
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -93,6 +103,13 @@ if uploaded_file:
     st.markdown("---")
 
     # ------------------ BUTTON ------------------
+    st.markdown("""
+    ### 📦 Your report will include:
+    - Summary metrics  
+    - Monthly sales chart  
+    - City-wise analysis  
+    """)
+
     if st.button("🚀 Generate Report"):
 
         with st.spinner("Processing..."):
