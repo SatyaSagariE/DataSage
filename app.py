@@ -63,8 +63,8 @@ st.markdown("---")
 st.markdown("### 📂 Upload Excel File")
 
 # Sample file download
-with open("sample.xlsx", "rb") as f:
-    st.download_button("📥 Download Sample Excel", f, "sample.xlsx")
+with open("input.xlsx", "rb") as f:
+    st.download_button("📥 Download Sample Excel", f, "input.xlsx")
 
 uploaded_file = st.file_uploader("Drag & drop or browse", type=["xlsx"])
 
